@@ -1,0 +1,635 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Skills | Jhon Emil G. Mercado</title>
+
+<style>
+:root {
+    --paper: #f3f6f4;
+    --ink: #14282b;
+    --teal: #0f6b6b;
+    --sun: #f2b134;
+    --line: #cfdad7;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+}
+
+a {
+    color: var(--teal);
+}
+
+:focus-visible {
+    outline: 3px solid var(--sun);
+    outline-offset: 3px;
+}
+
+/* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 5%;
+}
+
+.logo {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+}
+
+nav a {
+    color: #d6e4e1;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: var(--white);
+    border-bottom-color: var(--sun);
+}
+
+/* Hero */
+.hero {
+    background: var(--teal);
+    color: var(--white);
+    padding: 5rem 5% 4rem;
+}
+
+.hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 52ch;
+    margin-bottom: 1.75rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--ink);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--white);
+}
+
+/* Profile Picture */
+.photo {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    justify-self: center;
+    border: 6px solid var(--sun);
+    border-radius: 50%;
+    background: #0b4f4f;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Sections */
+section {
+    padding: 4rem 5%;
+}
+
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.lead {
+    max-width: 60ch;
+    margin-bottom: 2rem;
+    color: #3c5558;
+}
+
+.alt {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+/* Skill Bars */
+.skills {
+    display: grid;
+    gap: 1.25rem 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.skill-head {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 0.35rem;
+}
+
+.bar {
+    height: 12px;
+    background: var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: var(--teal);
+    border-radius: 6px;
+}
+
+/* Tools and Interests */
+.chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.chips li {
+    border: 2px solid var(--teal);
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    background: var(--paper);
+}
+
+/* Projects */
+.projects {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--sun);
+    padding: 1.5rem;
+}
+
+.project h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    margin-bottom: 0.75rem;
+}
+
+/* Certifications */
+.certs {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    list-style: none;
+}
+
+.cert {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-top: 6px solid var(--teal);
+    padding: 0.75rem;
+    margin: 0;
+}
+
+.cert-frame {
+    aspect-ratio: 4 / 3;
+    background: var(--paper);
+    border: 1px dashed var(--line);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #3c5558;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.cert-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--white);
+}
+
+.cert figcaption {
+    margin-top: 0.6rem;
+    font-weight: bold;
+}
+
+/* Contact */
+.contact-list {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-list strong {
+    display: inline-block;
+    min-width: 6.5rem;
+}
+
+footer {
+    background: var(--ink);
+    color: #b9cbc8;
+    text-align: center;
+    padding: 1.5rem 5%;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 720px) {
+    .hero {
+        padding-top: 3rem;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo {
+        order: -1;
+        max-width: 180px;
+    }
+
+    header {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header>
+    <a class="logo" href="#top">Jhon Emil G. Mercado</a>
+
+    <nav aria-label="Main">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#certification">Certification</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="top">
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-inner">
+
+            <div>
+                <h1>Hi, I'm Jhon Emil G. Mercado. I build things for the web.</h1>
+
+                <p>
+                    I'm a student learning web development with HTML and CSS.
+                    This page shows what I can do, what I enjoy, and what
+                    I'm working on next.
+                </p>
+
+                <a class="btn" href="#projects">See my work</a>
+            </div>
+
+            <!-- Profile Picture -->
+            <div class="photo">
+                <img
+                    src="photo1.jpg"
+                    alt="Profile picture of Jhon Emil G. Mercado"
+                >
+            </div>
+
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="wrap">
+            <h2>About me</h2>
+
+            <p class="lead">
+                My name is Jhon Emil G. Mercado. I completed the Responsive
+                Web Design Certification on freeCodeCamp, where I learned
+                to build web pages with HTML and CSS that look good on
+                phones, tablets, and computers. I made this website to show
+                my skills, the tools I use, and the things I enjoy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="alt">
+        <div class="wrap">
+            <h2>What I can do</h2>
+
+            <p class="lead">
+                Bars show how comfortable I am right now. Edit the width
+                percentages to match your own level.
+            </p>
+
+            <div class="skills">
+
+                <div>
+                    <div class="skill-head">
+                        <span>HTML</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="bar"><span style="width:85%"></span></div>
+                </div>
+
+                <div>
+                    <div class="skill-head">
+                        <span>CSS</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="bar"><span style="width:80%"></span></div>
+                </div>
+
+                <div>
+                    <div class="skill-head">
+                        <span>Responsive design</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="bar"><span style="width:75%"></span></div>
+                </div>
+
+                <div>
+                    <div class="skill-head">
+                        <span>Accessibility basics</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="bar"><span style="width:65%"></span></div>
+                </div>
+
+                <div>
+                    <div class="skill-head">
+                        <span>Graphic design</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="bar"><span style="width:70%"></span></div>
+                </div>
+
+                <div>
+                    <div class="skill-head">
+                        <span>JavaScript</span>
+                        <span>35%</span>
+                    </div>
+                    <div class="bar"><span style="width:35%"></span></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools and Interests -->
+    <section id="tools">
+        <div class="wrap">
+
+            <h2>Tools I use</h2>
+            <p class="lead">Software and platforms I work with.</p>
+
+            <ul class="chips">
+                <li>VS Code</li>
+                <li>freeCodeCamp</li>
+                <li>Chrome DevTools</li>
+                <li>Canva</li>
+                <li>GitHub</li>
+                <li>InfinityFree</li>
+            </ul>
+
+            <h2 style="margin-top:2.5rem">Interests</h2>
+            <p class="lead">What I like to do outside of coding.</p>
+
+            <ul class="chips">
+                <li>Photography</li>
+                <li>Music</li>
+                <li>Gaming</li>
+                <li>Reading</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section id="certification">
+        <div class="wrap">
+
+            <h2>My certification</h2>
+
+            <p class="lead">
+                Responsive Web Design Certification from freeCodeCamp,
+                earned by Jhon Emil G. Mercado.
+            </p>
+
+            <ul class="certs">
+
+                <li>
+                    <figure class="cert">
+                        <div class="cert-frame">
+                            <img
+                                src="photo.jpg"
+                                alt="Certification page - Jhon Emil G. Mercado"
+                                onerror="this.remove()"
+                            >
+                            Add cert-1.jpg
+                        </div>
+                        <figcaption>Certification page</figcaption>
+                    </figure>
+                </li>
+
+                <li>
+                    <figure class="cert">
+                        <div class="cert-frame">
+                            <img
+                                src="photo3.jpg"
+                                alt="Completed projects - Jhon Emil G. Mercado"
+                                onerror="this.remove()"
+                            >
+                            Add cert-2.jpg
+                        </div>
+                        <figcaption>Completed projects</figcaption>
+                    </figure>
+                </li>
+
+                <li>
+                    <figure class="cert">
+                        <div class="cert-frame">
+                            <img
+                                src="photo_2.jpg"
+                                alt="Certificate details - Jhon Emil G. Mercado"
+                                onerror="this.remove()"
+                            >
+                            Add cert-3.jpg
+                        </div>
+                        <figcaption>Certificate details</figcaption>
+                    </figure>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="alt">
+        <div class="wrap">
+
+            <h2>Projects</h2>
+            <p class="lead">
+                Add links to your freeCodeCamp projects or other work.
+            </p>
+
+            <div class="projects">
+
+                <article class="project">
+                    <h3>Tribute Page</h3>
+                    <p>A one-page tribute built with semantic HTML and CSS.</p>
+                    <a href="#">View project</a>
+                </article>
+
+                <article class="project">
+                    <h3>Survey Form</h3>
+                    <p>An accessible form with labels, inputs, and validation.</p>
+                    <a href="#">View project</a>
+                </article>
+
+                <article class="project">
+                    <h3>Product Landing Page</h3>
+                    <p>A responsive page using Flexbox and media queries.</p>
+                    <a href="#">View project</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="wrap">
+
+            <h2>Contact</h2>
+            <p class="lead">
+                Want to work together or just say hi? Reach me here.
+            </p>
+
+            <ul class="contact-list">
+                <li>
+                    <strong>Email</strong>
+                    <a href="mailto:jgmercado.student@asiancollege.edu.ph">
+                        jgmercado.student@asiancollege.edu.ph
+                    </a>
+                </li>
+
+                <li>
+                    <strong>GitHub</strong>
+                    <a href="https://github.com/settings/profile">
+                        GitHub Profile
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Facebook</strong>
+                    <a href="https://facebook.com/yourprofile">
+                        Facebook Profile
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2026 Jhon Emil G. Mercado. Built with HTML and CSS.
+</footer>
+
+</body>
+</html>
+```
